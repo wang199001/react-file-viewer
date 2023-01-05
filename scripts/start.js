@@ -19,6 +19,7 @@ const devServer = new WebpackDevServer(compiler, {
   watchOptions: {
     ignored: /node_modules/,
   },
+  disableHostCheck: true,
 });
 
 devServer.listen(PORT, (err, result) => {

@@ -40,9 +40,7 @@ class XlxsViewer extends Component {
           }
         });
       }
-      console.log(name, mc, mr);
       let j = XLSX.utils.sheet_to_json(workbook.Sheets[name], { blankRows: true, defval: null, header: 1 });
-      console.log(name, j);
       if (j) {
         j.forEach((item, index) => {
           // const f = item.filter(value => index <= mr || (index > mr && value !== null));
@@ -61,8 +59,6 @@ class XlxsViewer extends Component {
           j = j.filter((item, index) => index <= mr);
         }
         j = j.map(item => item.slice(0, mc + 1));
-        console.log(name, mc, mr);
-        console.log('==', name, j);
         const ns = XLSX.utils.json_to_sheet(j, { skipHeader: true });
         return XLSX.utils.sheet_to_html(ns, { defval: null });
       }

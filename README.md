@@ -1,3 +1,8 @@
+# 说明
+此包基于 https://github.com/plangrid/react-file-viewer  
+此包为测试版本  
+根据issue建议修改了xlsx样式  
+增加了xlsx去空行空列逻辑  
 
 # react-file-viewer
 

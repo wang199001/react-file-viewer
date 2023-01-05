@@ -9,6 +9,53 @@ PDFJS.disableWorker = true;
 const INCREASE_PERCENTAGE = 0.2;
 const DEFAULT_SCALE = 1.1;
 
+// const PDFPage2 = (props) => {
+//   const { pdf, index, containerWidth, zoom, disableVisibilityCheck } = props;
+//   const refCanvas = React.useRef(null);
+//
+//   const [isVisible, setIsVisible] = React.useState(disableVisibilityCheck);
+//
+//   const renderPage = (page) => {
+//     const calculatedScale = (containerWidth / page.getViewport(DEFAULT_SCALE).width);
+//     const scale = calculatedScale > DEFAULT_SCALE ? DEFAULT_SCALE : calculatedScale;
+//     const viewport = page.getViewport(scale + zoom);
+//     const { width, height } = viewport;
+//
+//     if (refCanvas.current) {
+//       const context = refCanvas.current.getContext('2d');
+//       refCanvas.current.width = width;
+//       refCanvas.current.height = height;
+//       page.render({
+//         canvasContext: context,
+//         viewport,
+//       });
+//     }
+//   };
+//
+//   const onChange = (value) => {
+//     if (value) {
+//       setIsVisible(value);
+//     }
+//   };
+//
+//   React.useEffect(() => {
+//     if (isVisible) {
+//       pdf.getPage(index).then(page => renderPage(page));
+//     }
+//   }, [disableVisibilityCheck, isVisible, zoom, isVisible]);
+//
+//   return (
+//     <div key={`page-${index}`} className="pdf-canvas">
+//       {disableVisibilityCheck ? <canvas ref={refCanvas} width="670" height="870" /> : (
+//         <VisibilitySensor onChange={onChange} partialVisibility >
+//           <canvas ref={refCanvas} width="670" height="870" />
+//         </VisibilitySensor>
+//       )
+//       }
+//     </div>
+//   );
+// };
+
 export class PDFPage extends React.Component {
   constructor(props) {
     super(props);
@@ -126,13 +173,13 @@ export default class PDFDriver extends React.Component {
     if (!pdf) return null;
     const pages = Array.apply(null, { length: pdf.numPages });
     return pages.map((v, i) => (
-      (<PDFPage
+      <PDFPage
         index={i + 1}
         pdf={pdf}
         containerWidth={containerWidth}
         zoom={zoom * INCREASE_PERCENTAGE}
         disableVisibilityCheck={this.props.disableVisibilityCheck}
-      />)
+      />
     ));
   }
 

@@ -11,7 +11,7 @@ module.exports = {
 
   entry: {
     app: [
-      'webpack-dev-server/client?http://localhost:8081/',
+      'webpack-dev-server/client?http://localhost:7081/',
       'webpack/hot/dev-server',
       path.resolve(__dirname, './src/app.js'),
     ],
