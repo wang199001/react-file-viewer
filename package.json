@@ -1,6 +1,6 @@
 {
   "name": "@elichaowang/react-file-viewer",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Extendable file viewer for web",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -34,10 +34,6 @@
     }
   ],
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/plangrid/react-file-viewer/issues"
-  },
-  "homepage": "https://github.com/plangrid/react-file-viewer#readme",
   "devDependencies": {
     "autoprefixer": "^7.1.0",
     "babel-core": "^6.24.1",

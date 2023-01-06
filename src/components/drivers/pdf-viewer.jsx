@@ -7,7 +7,7 @@ import 'pdfjs-dist/web/compatibility';
 
 PDFJS.disableWorker = true;
 const INCREASE_PERCENTAGE = 0.2;
-const DEFAULT_SCALE = 1.1;
+// const DEFAULT_SCALE = 1.1;
 
 // const PDFPage2 = (props) => {
 //   const { pdf, index, containerWidth, zoom, disableVisibilityCheck } = props;
@@ -90,12 +90,13 @@ export class PDFPage extends React.Component {
   }
 
   renderPage(page) {
-    const { containerWidth, zoom } = this.props;
-    const calculatedScale = (containerWidth / page.getViewport(DEFAULT_SCALE).width);
-    const scale = calculatedScale > DEFAULT_SCALE ? DEFAULT_SCALE : calculatedScale;
+    // const { containerWidth, zoom } = this.props;
+    // const calculatedScale = (containerWidth / page.getViewport(DEFAULT_SCALE).width);
+    // const scale = calculatedScale > DEFAULT_SCALE ? DEFAULT_SCALE : calculatedScale;
+    const { zoom } = this.props;
+    const scale = 4;
     const viewport = page.getViewport(scale + zoom);
     const { width, height } = viewport;
-
     const context = this.canvas.getContext('2d');
     this.canvas.width = width;
     this.canvas.height = height;
@@ -112,7 +113,7 @@ export class PDFPage extends React.Component {
       <div key={`page-${index}`} className="pdf-canvas">
         {this.props.disableVisibilityCheck ? <canvas ref={node => this.canvas = node} width="670" height="870" /> : (
           <VisibilitySensor onChange={this.onChange} partialVisibility >
-            <canvas ref={node => this.canvas = node} width="670" height="870" />
+            <canvas ref={node => this.canvas = node} width="670" height="870" style={{ width: `${this.props.containerWidth}px` }} />
           </VisibilitySensor>
             )
         }
