@@ -1,6 +1,6 @@
 {
   "name": "@elichaowang/react-file-viewer",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "Extendable file viewer for web",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -64,9 +64,9 @@
     "jest": "^23.6.0",
     "node-sass": "^4.14.1",
     "postcss-loader": "^2.0.5",
-    "react": "16.7.0",
-    "react-dom": "16.7.0",
-    "react-test-renderer": "16.7.0",
+    "react": ">=16.7.0",
+    "react-dom": ">=16.7.0",
+    "react-test-renderer": ">=16.7.0",
     "sass-loader": "^6.0.5",
     "style-loader": "^0.17.0",
     "url-loader": "^0.5.8",
@@ -84,8 +84,8 @@
     "xlsx": "0.15.6"
   },
   "peerDependencies": {
-    "react": "16.7.0",
-    "react-dom": "16.7.0"
+    "react": ">=16.7.0",
+    "react-dom": ">=16.7.0"
   },
   "jest": {
     "testPathIgnorePatterns": [

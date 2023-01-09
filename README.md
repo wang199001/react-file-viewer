@@ -3,6 +3,7 @@
 此包为测试版本  
 根据issue建议修改了xlsx样式  
 增加了xlsx去空行空列逻辑  
+优化pdf清晰度
 
 # react-file-viewer
 
